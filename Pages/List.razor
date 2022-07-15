@@ -1,0 +1,35 @@
+﻿@page "/list"
+@inject HttpClient Http
+
+@if (files == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <ul  class="list-group">
+        @foreach (var f in files)
+        {
+        <li class="list-group-item">
+            <a href="/Photos/Kew072022/@f">
+                <img src="/Photos/Kew072022/@f" class="rounded img-fluid" />
+            </a>
+        </li>
+        }
+    </ul>
+}
+
+@code {
+    private String[] files;
+
+    protected override async Task OnInitializedAsync()
+    {
+       const string path = @"Photos\Kew072022\";
+
+       var temp = await Http.GetStringAsync(path + "list.txt");
+
+       files = temp.Split(Environment.NewLine);
+
+    }
+
+}
