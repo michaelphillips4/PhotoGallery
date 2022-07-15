@@ -1,16 +1,18 @@
 ﻿@page "/list"
 @inject HttpClient Http
 
+<p>All original size files</p>
+
 @if (files == null)
 {
     <p><em>Loading...</em></p>
 }
 else
 {
-    <ul  class="list-group">
+    <ul>
         @foreach (var f in files)
         {
-        <li class="list-group-item">
+        <li>
             <a href="/Photos/Kew072022/@f">
                 <img src="/Photos/Kew072022/@f" class="rounded img-fluid" />
             </a>

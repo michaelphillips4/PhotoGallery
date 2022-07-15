@@ -6,6 +6,7 @@
     var counter = 0;
 }
 
+<p>These are smaller thumbnails to download faster. Click on an image to see the full size file.</p>
 
 @if (files == null)
 {
@@ -20,14 +21,14 @@ else
         <div class="row">
             <div class="col-lg">
                 <a href="/Photos/Kew072022/@files[i]">
-                    <img src="/Photos/Kew072022/@files[i]" class="rounded img-fluid p-2" />
+                    <img src="/Photos/Kew072022/thumbs/@files[i]" class="rounded img-fluid p-2" />
                 </a>
             </div>
             <div class="col-lg">
                 @if (i + 1 < files.Length)
                 {
                     <a href="/Photos/Kew072022/@files[i + 1 ]">
-                        <img src="/Photos/Kew072022/@files[i + 1 ]" class="rounded img-fluid p-2" />
+                        <img src="/Photos/Kew072022/thumbs/@files[i + 1 ]" class="rounded img-fluid p-2" />
                     </a>
                 }
 
@@ -36,7 +37,7 @@ else
                 @if (i + 2 < files.Length)
                 {
                     <a href="/Photos/Kew072022/@files[i + 2]">
-                        <img src="/Photos/Kew072022/@files[i + 2]" class="rounded img-fluid p-2" />
+                        <img src="/Photos/Kew072022/thumbs/@files[i + 2]" class="rounded img-fluid p-2" />
                     </a>
                 }
 
