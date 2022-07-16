@@ -1,7 +1,15 @@
 ﻿@page "/list"
 @inject HttpClient Http
 
-<p>All original size files</p>
+
+
+<style>
+    ul {
+        list-style-type: none;
+    }
+</style>
+
+<p>All original size files (may take a bit to download)</p>
 
 @if (files == null)
 {
@@ -14,7 +22,7 @@ else
         {
         <li>
             <a href="/Photos/Kew072022/@f">
-                <img src="/Photos/Kew072022/@f" class="rounded img-fluid" />
+                <img src="/Photos/Kew072022/@f" class="rounded img-fluid p-2" />
             </a>
         </li>
         }

@@ -1,10 +1,6 @@
 ﻿@page "/gallery"
 @inject HttpClient Http
 
-@{
-
-    var counter = 0;
-}
 
 <p>These are smaller thumbnails to download faster. Click on an image to see the full size file.</p>
 
@@ -18,39 +14,11 @@ else
 
     @while (i < files.Length)
     {
-        <div class="row">
-            <div class="col-lg">
-                <a href="/Photos/Kew072022/@files[i]">
+                 <a href="/Photos/Kew072022/@files[i]">
                     <img src="/Photos/Kew072022/thumbs/@files[i]" class="rounded img-fluid p-2" />
                 </a>
-            </div>
-            <div class="col-lg">
-                @if (i + 1 < files.Length)
-                {
-                    <a href="/Photos/Kew072022/@files[i + 1 ]">
-                        <img src="/Photos/Kew072022/thumbs/@files[i + 1 ]" class="rounded img-fluid p-2" />
-                    </a>
-                }
-
-            </div>
-            <div class="col-lg">
-                @if (i + 2 < files.Length)
-                {
-                    <a href="/Photos/Kew072022/@files[i + 2]">
-                        <img src="/Photos/Kew072022/thumbs/@files[i + 2]" class="rounded img-fluid p-2" />
-                    </a>
-                }
-
-            </div>
-        </div>
-
-        counter++;
-        if (counter > 4) { counter = 0; };
-        i = i + 3;
+        i++;
     }
-
-
-
 }
 
 @code {
@@ -63,7 +31,6 @@ else
         var temp = await Http.GetStringAsync(path + "list.txt");
 
         files = temp.Split(Environment.NewLine);
-
     }
 
 }
